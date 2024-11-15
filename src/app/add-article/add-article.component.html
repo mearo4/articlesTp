@@ -1,0 +1,7 @@
+<div>
+    <input type="text" placeholder="Title" [(ngModel)]="title" />
+    <input type="text" placeholder="Photo URL" [(ngModel)]="photo" />
+    <textarea placeholder="Description" [(ngModel)]="description"></textarea>
+    <button (click)="addArticle()">Add Article</button>
+    <img [src]="photo" alt="">
+</div>

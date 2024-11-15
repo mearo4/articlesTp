@@ -1,0 +1,19 @@
+<div>
+    <input type="text" placeholder="Search articles..." [(ngModel)]="searchQuery" />
+
+    <button (click)="showAddArticleForm = !showAddArticleForm">
+        {{ showAddArticleForm ? 'Hide' : 'Add New Article' }}
+    </button>
+
+    <app-addarticle *ngIf="showAddArticleForm" (articleAdded)="addArticle($event)"></app-addarticle>
+
+    <div *ngFor="let article of filteredArticles">
+        <h2>{{ article.title }}</h2>
+        <img [src]="article.photo" alt="Article Photo" width="150" />
+        <p>{{ article.description }}</p>
+        <p>Published on: {{ article.date | date }}</p>
+        <p>Score: {{ article.score }}</p>
+        <button (click)="upvote(article)">Upvote</button>
+        <button (click)="downvote(article)">Downvote</button>
+    </div>
+</div>
